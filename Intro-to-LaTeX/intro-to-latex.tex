@@ -1,0 +1,137 @@
+%  Created by Branden Stone on 2015-01-15.
+%  Copyright (c) 2015 Branden Stone. All rights reserved.
+%--------------------------------------------------------
+\documentclass{amsart}
+
+
+%---------------------------
+% Packages
+%---------------------------
+\usepackage{amssymb, amsmath, latexsym, amsfonts, amsthm, mathrsfs} % Standard packages that are nice to have.
+\usepackage{verbatim} % Needed for \begin{comment} \end{comment}.
+\usepackage[text={6in,9in},centering]{geometry} % Defines the dimensions of the text body.
+\usepackage[colorlinks=true]{hyperref} % Allows for use of hyperlinks.
+\usepackage[doublespacing]{setspace} % Makes the document double spaced.
+
+
+%----------------------------
+% Title and Author
+%----------------------------
+
+\title{Introduction to \LaTeX}
+\author{Branden Stone}
+
+%----------------------------
+% Main Document Body
+%----------------------------
+
+\begin{document}
+	
+%-------------------------------------------------------------
+% Front Matter: This is where you can add a table of contents,
+% preface, list of figures, ETC. for this template we will 
+% only create a title and author name with `\maketitle'
+%-------------------------------------------------------------
+
+\maketitle
+
+	
+%-------------------------------------------------------------
+% Document Body: Essentially this is where you place the 
+% content of your document. To use this template, just delete
+% all of the text between here and the Bibliography Section.
+% Then type whatever you desire.
+%-------------------------------------------------------------
+
+\section{Introduction} % This defines the sections
+
+   This document is meant to be a template to use for writing assignments in Math 224. I will give a few tips and tricks on using \LaTeX\ here and in class, but for the most part you will be on your own when it comes to learning how to use it. The great thing about using \LaTeX\ is that it only will do what you tell it to do. The bad part about using \LaTeX\ is that it only will do what you tell it to do. That is, it can be a pain to find errors. It has a steep learning curve, but once you gain the basics, it will greatly help you in future classes. 
+
+% Indenting and spacing your text means nothing. 
+% I only do it because I like how it looks in the TEX file. 
+% It does not effect the PDF.
+
+   In Section \ref{math}, I will give a few examples on how to use the math environment and in Section \ref{more}, I list some resources.  
+
+   First off, I want to explain a little about how to use \LaTeX. There are many files associated to your document, but there are only two you should be concerned with. They are the `.tex' file and the `.pdf' file. The TEX file is what you write in and the PDF is what you send to people.  Basically \LaTeX\ allows you to generate your own PDFs. 
+
+   While creating the PDF from the TEX file can be done locally on your machine, I highly suggest you first use the following:
+   \begin{enumerate}
+      % \item \url{https://www.sharelatex.com}
+      \item \url{https://www.overleaf.com}
+   \end{enumerate}
+   This site is free to use and I will be posting templates on my account that you can copy and use. I hope you have fun with this and feel free to ask me if you have any questions.
+
+
+
+\section{Using Math Environment} \label{math} 
+% The labels can be anything you like! 
+% This allows you to reference a section or comment without 
+% having to figure out what number it is.  LaTeX will keep 
+% track for you.
+
+
+   When inputing an equation or variable in a paragraph, we use the single dollar sign, `\verb|$|'. For example, writing a function might look like this, \verb|$f(x) = 2x^3-4x+2$|. When you compile the expression will look like this in the PDF, $f(x) = 2x^3-4x+2$. This allows us to quickly write complex expressions without the need for a special editor.
+
+   If you are wanting to create a centered math expression, you can use the double dollar sign, `\verb|$$|', or use open and closed brackets `\verb|\[...\]|'. For example, you could write
+      \begin{center}
+         \verb|$$\lim_{x\to -1} \frac{x^2-1}{x+1}$$|
+      \end{center}
+   or you could use
+      \begin{center} 
+         \begin{verbatim}
+         \[
+            \lim_{x\to -1} \frac{x^2-1}{x+1}
+         \]         
+         \end{verbatim}
+      \end{center}
+   Both expressions will give you the desired result.  That is you will see this with the dollar sign, 
+   $$\lim_{x\to -1} \frac{x^2-1}{x+1},$$
+   and this with the brackets,
+      \[
+          \lim_{x\to -1} \frac{x^2-1}{x+1}.
+      \]     
+
+
+   I would like to mention one formating concern. Let's say I want to write the above expression in a paragraph, and not centered. Then I would just write \verb|$\lim_{x\to -1} \frac{x^2-1}{x+1}$| to get $\lim_{x\to -1} \frac{x^2-1}{x+1}$. Notice that it does not look like it did when we centered it. This is because we are putting it into a small space in the paragraph. But we can override this. Just use the command \verb|\displaystyle| in the dollar signs like this, \verb|$\displaystyle \lim_{x\to -1} \frac{x^2-1}{x+1}$|. Now your expression should look like this, $\displaystyle \lim_{x\to -1} \frac{x^2-1}{x+1}$.
+
+
+   Sometimes it is nice to place several mathematical expressions on multiple lines. For this we can use the \verb|align| environment. We can use it as follows.
+   \begin{verbatim}
+   \begin{align*}
+      \lim_{x\to -1} \frac{x^2-1}{x+1} & = \lim_{x\to -1} \frac{(x-1)(x+1)}{x+1} \\
+         &= \lim_{x\to -1} x-1 \\
+         & = -2.
+   \end{align*}
+   \end{verbatim}
+   The output of this will look like this.
+   \begin{align*}
+      \lim_{x\to -1} \frac{x^2-1}{x+1} & = \lim_{x\to -1} \frac{(x-1)(x+1)}{x+1} \\
+         &= \lim_{x\to -1} x-1 \\
+         & = -2.
+   \end{align*}
+   Notice that the \verb|&| force the equal signs to line up and the \verb|\\| define the new line. 
+
+
+
+   There are lots of other things to learn here, but this should get you started. For more commands and tricks see the resources in Section \ref{more}.
+
+  
+
+\section{More Resources} \label{more}
+
+
+   There is a lot to learn about \LaTeX, but I hope this will get you started. I you are stuck I recommend the following resources.
+   \begin{enumerate}
+      \item \url{http://detexify.kirelabs.org/classify.html} -- Draw the symbol you want and it gives the code!
+      \item \url{http://www.google.com}
+      \item \url{https://tobi.oetiker.ch/lshort/lshort.pdf}
+   \end{enumerate}
+   The second reference is not a joke. If you get stuck on anything pertaining to \LaTeX, just google it. That should be your first instinct\footnote{This should be your first instinct when dealing with \LaTeX\ problems. This should {\bf NOT} be your first instinct with actually working the math problems.}. The third reference is an nice walk through of what \LaTeX\ can do. 
+
+
+\end{document}
+
+  
+
+
